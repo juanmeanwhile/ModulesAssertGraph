@@ -43,13 +43,16 @@ android {
     val feature = ":feature:[a-z]*"
     val featureDomain = ":feature:.*:domain"
     val featureData = ":feature:.*:data"
-    val ui = ":ui:[a-z]*"
-    val notMappedModule = "(?!.*(:feature|:ui)).*"
-
+    val ui = "(:shared)?:ui:[a-z]*"
+    //val notMappedModule = "(?!.*(:feature|:ui)).*"
+    val notMappedModule = "(?!(:feature|:ui)).*"
+    //val notMappedModule = "^(?!.*\b(:feature|:ui)\b).*$"
     moduleGraphAssert {
         maxHeight = 4
         allowed = arrayOf(
             ":app -> .*",
+            //":adress-latte -> $ui",  // TODO :adress-latte not matched by notMappedModule for some reason
+            //"$notMappedModule -> :shared:ui:views", // <-- not working
             "$notMappedModule -> $feature",
             "$notMappedModule -> $ui",
             "$notMappedModule -> $notMappedModule",
@@ -90,6 +93,8 @@ dependencies {
     implementation(project(":feature:checkout"))
     implementation(project(":feature:search"))
     implementation(project(":ui:product"))
+    implementation(project(":adress-latte"))
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

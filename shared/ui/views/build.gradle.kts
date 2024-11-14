@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    namespace = "com.meanwhile.search"
-    compileSdk = 35
+    namespace = "com.meanwhile.views"
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 28
@@ -33,10 +33,6 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":feature:checkout:domain"))
-    implementation(project(":feature:exception")) // FIXME <- Allowed by exception
-    implementation(project(":shared:ui:views"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
