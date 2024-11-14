@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation(project(":ui:common"))
+    //implementation(project(":feature:exception")) // FIXME <- Should be forbidden
     implementation(project(":analytics"))
 
     implementation(libs.androidx.core.ktx)

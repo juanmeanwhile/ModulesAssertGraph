@@ -39,12 +39,13 @@ android {
         compose = true
     }
 
+    // Module regex
     val feature = ":feature:[a-z]*"
     val featureDomain = ":feature:.*:domain"
     val featureData = ":feature:.*:data"
     val ui = ":ui:[a-z]*"
-    val notMappedModule = "(?!.*(:feature|:ui)).*"  // works but also allows ui
-    //val notMappedModule = ":(?!(feature|ui)).*"
+    val notMappedModule = "(?!.*(:feature|:ui)).*"
+
     moduleGraphAssert {
         maxHeight = 4
         allowed = arrayOf(

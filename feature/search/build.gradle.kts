@@ -35,7 +35,7 @@ android {
 dependencies {
 
     implementation(project(":feature:checkout:domain"))
-    implementation(project(":feature:exception"))
+    implementation(project(":feature:exception")) // FIXME <- Allowed by exception
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
